@@ -1,0 +1,145 @@
+<html>
+
+<p id="kk"></p>
+<p id="y"></p>
+
+  <div id="box">                 
+    
+    
+    <p id="x"></p>
+                    <div id="demo">
+                      <div class="header">
+                        <h1>QUESTIONS:~</h1>
+                      </div>
+                    <button onclick="show(0)">1</button>
+                    <button onclick="show(1)">2</button>
+                    <button onclick="show(2)">3</button>
+                    <button onclick="show(3)">4</button>
+                    <button onclick="show(4)">5</button>
+                    <button onclick="show(5)">6</button>
+                    <button onclick="show(6)">7</button>
+                    <button onclick="show(7)">8</button>
+                    <button onclick="show(8)">9</button>
+                    <button onclick="show(9)">10</button>
+                    <button onclick="back()">Back</button>
+                    <button onclick="next()">Next</button>
+                   <button onclick="answer()"> Answer</button>
+                   <button onclick="finish()">Finish</button>
+                    <p id="q"></p>
+                    <p id="op1"></p>
+                    <p id="op2"></p>
+                    <p id="op3"></p>
+                    
+                  </div>
+
+                    </div>
+                    <style>
+                      body{
+                        background-color: black;
+                        color: white;
+      
+                      }
+                      .header{
+                        font-size: 20px;
+                        background-color: black;
+                        color: white;
+                      }
+
+                    </style>
+                    
+                    <script>
+                      var count=0;
+                                        var h=29,m=59;
+                                        setInterval(function()
+                                        {
+                                         document.getElementById("x").innerHTML="Time left is-"+h+":"+m;
+                                         m--;
+                                        
+                                        if(m==-1)
+                                        {
+                                          m=59;
+                                          h--;
+                                        }
+                                       
+                                        if(h==-1)
+                                        {
+                                           clearInterval(h);  
+                                           document.getElementById("demo").style.visibility="hidden" ;               
+                                        }
+                                        
+                                       },1000)
+
+                                       var x= [
+                                        {question: "Q1) Who is PM of India", option1:"Narendra Modi", option2: "Rahul Gandhi", option3:"Mamta Banerjee", answer:"1" },
+                                        {question: "Q2) National bird of India", option1:"pegion", option2: "owl", option3:"peacock", answer:"3" },
+                                        {question: "Q3) How many states are there in India", option1:"30", option2:" 28", option3:"29", answer:"2" },
+                                        {question: "Q4) Who is president of india", option1:"draupadi murmu", option2:" pratibha patil", option3:"soniya gandhi", answer:"1" },
+                                        {question: "Q5) Capital of chattisgarh", option1:"bhilai", option2:" raipur", option3:"bilaspur", answer:"2" },
+                                        {question: "Q6) Which year india got independence", option1:"1945", option2:" 1946", option3:"1947", answer:"3" },
+                                        {question: "Q7) Coronavirus came in which year", option1:"2018", option2:" 2019", option3:"2020", answer:"2" },
+                                        {question: "Q8) Which flower is called national flower of india", option1:"rose", option2:" lotus", option3:"daisy", answer:"2" },
+                                        {question: "Q9) Capital of country india is", option1:"mumbai", option2:" new delhi", option3:"goa", answer:"2" },
+                                        {question: "Q10) Capital of maharastra", option1:"mumbai", option2:"nagpur", option3:"pune", answer:"1" }
+                                       ]  
+                                       var index;
+
+                                       function show(v)
+                                       {
+                                        index=v;
+                                        document.getElementById("q").innerHTML=x[v].question;
+                                        document.getElementById("op1").innerHTML="<input type='radio' id='a' value='1' name='x'>"+x[v].option1;
+                                        document.getElementById("op2").innerHTML="<input type='radio'id='b' value='2' name='x'>"+x[v].option2;
+                                        document.getElementById("op3").innerHTML="<input type='radio' id='c' value='3' name='x'>"+x[v].option3;
+                                       }
+                                       function answer()
+                                       {
+                                          var p;
+                                          if(document.getElementById("a").checked==true)
+                                          {
+                                            p=document.getElementById("a").value
+                                          }
+                                          if(document.getElementById("b").checked==true)
+                                          {
+                                            p=document.getElementById("b").value
+                                          }
+                                          if(document.getElementById("c").checked==true)
+                                          {
+                                            p=document.getElementById("c").value
+                                          }
+                                          if(p==x[index].answer)
+                                          {
+                                            document.getElementById("y").innerHTML="right";
+                                            count++;
+                                          }
+                                          else{
+                                            document.getElementById("y").innerHTML="wrong";
+                                          }
+                                       }
+
+                                       function finish()
+                                       {
+                                        document.getElementById("kk").innerHTML="Your Score "+count;
+                                        document.getElementById("box").style.visibility='hidden';
+                                       }
+                                       function next()
+                                       {
+                                        if(index==9)
+                                       {
+                                        show(0);
+                                       }
+                                       else{
+                                        show(index+1);
+                                       }
+                                       }
+                                       function back()
+                                       {
+                                        if(index==0)
+                                       {
+                                        show(9);
+                                       }
+                                       else{
+                                        show(index-1);
+                                       }
+                                      }
+                    </script>
+</html> 
