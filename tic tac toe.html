@@ -1,0 +1,302 @@
+<html>
+                    <body>
+                      <br>
+                      <button id="inner" onclick="showdiv()">Start Game</button>
+                      <div id="outer">
+
+                      <div class="left">
+
+                        
+                     
+                          <input type="button" id="t1"  class="a1" onclick="show1()">
+                          <input type="button" id="t2"  class="a1" onclick="show2()">
+                          <input type="button" id="t3"  class="a1" onclick="show3()"><br>
+                          <input type="button" id="t4"  class="a1" onclick="show4()">
+                          <input type="button" id="t5"  class="a1" onclick="show5()">
+                          <input type="button" id="t6"  class="a1" onclick="show6()"><br>
+                          <input type="button" id="t7"  class="a1" onclick="show7()">
+                          <input type="button" id="t8"  class="a1" onclick="show8()">
+                          <input type="button" id="t9"  class="a1" onclick="show9()"> <br>
+                      </div>
+
+                      
+
+
+                <div class="right">
+                  
+                    <h1>TIC TAC TOE</h1>
+        
+                    <h2>PLAYER 1 <span id="p1">0</span></h2><br>
+                    <h2>PLAYER 2 <span id="p2">0</span></h2><br>
+
+                  </div>
+                </div>
+                    </body>
+                    
+                    <style>
+
+                     .left
+                     {
+                      width: 60%;
+                      height: 300px;
+                      float: left;
+                     } 
+                     .right
+                     {
+                      width: 40%;
+                      height: 500px;
+                      float: left;
+                      margin-left: 0px;
+                     } 
+                     
+                                        body
+                                        {
+                                          background-color: blueviolet;
+                                          color: white;
+                                        }
+                                        #inner
+                                        {
+                                          font-size: 30px;
+                                          color: black;
+                                          margin-top: 250px;
+                                          margin-left: 600px;
+                                        }
+                                       
+                                       
+                                        #t1,#t2,#t3,#t4,#t5,#t6,#t7,#t8,#t9
+                                        {
+                                                            width:80px;
+                                                            height: 80px;
+                                                            padding: 30px;
+                                                            font-size: 30px;
+                                                            margin-left: 10px;
+                                                            margin-top: 10px;
+                                                            border-radius: 5px;
+                                                           
+                                        }
+                                       
+                                        
+                                        *{
+                                          margin: 0px;
+                                        }
+
+                                        
+
+                    </style>
+                    <script>
+    
+                      document.getElementById("outer").style.visibility='hidden';
+                      
+                      function showdiv()
+                      {
+                        document.getElementById("outer").style.visibility='visible';
+                        document.getElementById("inner").style.visibility='hidden';
+                      
+                      }
+                     
+                      
+                                        var t=1,c1=0,c2=0;
+                                        function draw()
+                                        {
+
+                                        }
+                                        function restart()
+                                        {
+                                                            document.getElementById("t1").value="";
+                                                            document.getElementById("t2").value="";
+                                                            document.getElementById("t3").value="";
+                                                            document.getElementById("t4").value="";
+                                                            document.getElementById("t5").value="";
+                                                            document.getElementById("t6").value="";
+                                                            document.getElementById("t7").value="";
+                                                            document.getElementById("t8").value="";
+                                                            document.getElementById("t9").value="";
+                                                            t=1;
+                                        }
+
+                                        function winner()
+                                        {
+
+                                                            var a=document.getElementById("t1").value;
+                                                            var b=document.getElementById("t2").value;
+                                                            var c=document.getElementById("t3").value;
+                                                            var d=document.getElementById("t4").value;
+                                                            var e=document.getElementById("t5").value;
+                                                            var f=document.getElementById("t6").value;
+                                                            var g=document.getElementById("t7").value;
+                                                            var h=document.getElementById("t8").value;
+                                                            var i=document.getElementById("t8").value;
+
+                                                            if( (a=="*"&& b=="*"&& c=="*")||(d=="*"&& e=="*"&& f=="*")||(g=="*"&& h=="*"&& i=="*")||(a=="*"&& d=="*"&& g=="*")||(b=="*"&& e=="*"&& h=="*")||(c=="*"&& f=="*"&& i=="*")||(a=="*"&& e=="*"&& i=="*")||(c=="*"&& e=="*"&& g=="*"))
+                                                          {
+                                                            
+                                                            c1++;
+                                                                
+                                                            document.getElementById("p1").innerHTML=c1;
+                                                            restart();
+                                                          }
+
+                                                           if( (a=="o"&& b=="o"&& c=="o")||(d=="o"&& e=="o"&& f=="o")||(g=="o"&& h=="o"&& i=="o")||(a=="o"&& d=="o"&& g=="o")||(b=="o"&& e=="o"&& h=="o")||(c=="o"&& f=="o"&& i=="o")||(a=="o"&& e=="o"&& i=="o")||(c=="o"&& e=="o"&& g=="o"))
+                                                          {
+                                                            
+                                                            c2++
+                                                            document.getElementById("p2").innerHTML=c2;
+                                                            restart();
+                                                          }
+                                                          if(t==10)
+                                                          {
+                                                            alert("DRAW");
+                                                            restart();
+                                                          }
+                                                                                       
+                                        }
+                                        
+                                       
+                                        function show1()
+                                        {
+                                                            if(document.getElementById("t1").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t1").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t1").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+                                        }
+
+                                        }
+                                        function show2()
+                                        {
+                                        if(document.getElementById("t2").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t2").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t1").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                     }
+                                        function show3()
+                                        {
+                                        if(document.getElementById("t3").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t3").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t3").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                      }
+                                        function show4()
+                                        {
+                                        if(document.getElementById("t4").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t4").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t4").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                    }
+                                        function show5()
+                                        {
+                                         if(document.getElementById("t5").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t5").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t5").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                         }
+                                        function show6()
+                                        {
+                                         if(document.getElementById("t6").value=="")
+                    
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t6").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t6").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                    }
+                                        function show7()
+                                        {
+                                        if(document.getElementById("t7").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t7").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t7").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                        }
+                                        function show8()
+                                        {
+                                        if(document.getElementById("t8").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t8").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t8").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                       }
+                                        function show9()
+                                        {
+                                         if(document.getElementById("t9").value=="")
+                                        {
+                                          if(t%2==1)
+                                          {
+                                                            document.getElementById("t9").value="*";
+                                          }
+                                          else{
+                                                     document.getElementById("t9").value="o" ;       
+                                          }
+                                          t++;
+                                          winner();
+
+                                        }
+                                      }
+                                     
+                    </script>
+</html>
